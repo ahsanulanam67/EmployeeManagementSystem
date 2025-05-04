@@ -4,13 +4,12 @@ from .models import CustomUser
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['id', 'email','is_active', 'is_staff']
+        fields = ['email', 'password']
         
     
     def create(self, validated_data):
         
-        password = validated_data.pop('password')
+        print("inside create")
+        
         user = CustomUser.objects.create_user(**validated_data)
-        user.set_password(password)
-        user.save()
         return user

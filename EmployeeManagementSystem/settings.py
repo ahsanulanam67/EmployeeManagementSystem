@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'accounts',
     'employer_app',
     'rest_framework',
+    'rest_framework_simplejwt',
+    'corsheaders',
+    'rest_framework_simplejwt.token_blacklist'
 ]
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
@@ -51,7 +54,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+CORS_ALLOW_ALL_ORIGINS = True 
 
 ROOT_URLCONF = 'EmployeeManagementSystem.urls'
 
@@ -111,6 +116,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
+SIMPLE_JWT = {
+    'BLACKLIST_AFTER_ROTATION': True,
+    # Add any other JWT configuration settings here if needed
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
