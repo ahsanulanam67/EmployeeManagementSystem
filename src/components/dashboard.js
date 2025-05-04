@@ -39,9 +39,7 @@ function Dashboard({ setAuth }) {
       }
     };
 
-    const handleChange = e => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-      };
+    
 
     
       const deleteEmployee = async (id) => {
@@ -80,7 +78,7 @@ function Dashboard({ setAuth }) {
         {employers.map(emp => (
           <div className="employer-card" key={emp.id}>
           <h3>{emp.company_name}</h3>
-          <p><strong>Contact:</strong> {emp.contact_person_name}</p>
+          <p><strong>Contact_Person_name:</strong> {emp.contact_person_name}</p>
           <p><strong>Email:</strong> {emp.email}</p>
           <p><strong>Phone:</strong> {emp.phone_number}</p>
           <p><strong>Address:</strong> {emp.address}</p>
