@@ -41,4 +41,10 @@ class LoginApiView(APIView):
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
    
-    
+
+class UserListView(APIView):
+        
+        def get(self, request):
+            users = CustomUser.objects.all()
+            serializer = CustomUserSerializer(users, many=True)
+            return Response(serializer.data)
