@@ -1,33 +1,44 @@
 
-import './App.css';
+import React, { useState } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from './components/Login';
-import Registration from './components/registration'
-import Dashboard from './components/dashboard'
+import Dashboard from './components/dashboard';
+import Registration from './components/registration';
+import UpdateEmployer from './components/updateEmployer';
+import AddEmployer from './components/addEmployer';
+import Logout from './components/logout';
 
-import {useState,useEffect} from 'react';
-function App() {
+const App = () => {
+  const [token, setToken] = useState(localStorage.getItem('jwtToken'));
 
-  const [token,setToken] = useState(localStorage.getItem('jwtToken'));
-
-  useEffect(()=>{
-    if(token){
-
-      localStorage.setItem('jwtToken',token);
-
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login setToken={setToken} />,
+    },
+    {
+      path: "/login",
+      element: <Login setToken={setToken} />,  
+    },
+    {
+      path: "/dashboard",
+      element: token ? <> <Dashboard /> <Logout setToken={setToken}/></> : <Login setToken={setToken} /> ,
+    },
+    {
+      path: "/register",
+      element: <Registration />,
+    },
+    {
+      path: "/updateEmployer/:id",
+      element: <UpdateEmployer />
+    },
+    {
+      path: "/addEmployer",
+      element: <AddEmployer />
     }
-    else{
-      localStorage.removeItem('jwtToken');
-    }
+  ]);
 
-  },[token]);
-  return (
-    <>
-    <Registration/>
-    <Login setToken={setToken} />
-    <Dashboard/>
-    </>
-
-  );
-}
+  return <RouterProvider router={router} />;
+};
 
 export default App;

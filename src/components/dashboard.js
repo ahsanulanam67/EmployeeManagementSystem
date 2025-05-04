@@ -43,29 +43,7 @@ function Dashboard({ setAuth }) {
         setFormData({ ...formData, [e.target.name]: e.target.value });
       };
 
-      const handleSubmit = async e => {
-        e.preventDefault();
-        try {
-            console.log(formData);
-          await axios.post('http://127.0.0.1:8000/api/employers/', formData, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          fetchEmployers(); // Refresh list
-          setFormData({
-            company_name: '',
-            contact_person_name: '',
-            email: '',
-            phone_number: '',
-            address: '',
-          });
-        } catch (err) {
-        //   console.error(err);
-        //   setError('Failed to create employer');
-        }
-      };
-
+    
       const deleteEmployee = async (id) => {
         try {
           await axios.delete(`http://127.0.0.1:8000/api/employers/${id}/`, {
@@ -88,19 +66,15 @@ function Dashboard({ setAuth }) {
   const handleEdit = (id)=>{
     navigate(`/updateEmployer/${id}`);
   }
+  const addEmployee=()=>{
+    navigate('/addEmployer');
+  }
   return (
     <div>
       <h2>Your Employers</h2>
       {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
 
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="company_name" placeholder="Company Name" value={formData.company_name} onChange={handleChange} required />
-        <input type="text" name="contact_person_name" placeholder="Contact Person Name" value={formData.contact_person_name} onChange={handleChange} required />
-        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-        <input type="text" name="phone_number" placeholder="Phone Number" value={formData.phone_number} onChange={handleChange} required />
-        <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleChange} required />
-        <button type="submit">Create Employer</button>
-      </form>
+      <button onClick={()=>addEmployee()} > Add New Employer</button>
 
       <ul>
         {employers.map(emp => (

@@ -8,34 +8,14 @@ import Login from './components/Login';
 import Dashboard from './components/dashboard';
 import Registration from './components/registration';
 import UpdateEmployer from './components/updateEmployer';
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import AddEmployer from './components/addEmployer';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
-  {
-    path: "/register",
-    element: <Registration />,  // Add the Registration page here
-  },
-  {
-    path: "/updateEmployer/:id",
-    element: <UpdateEmployer/>
-  }
-]);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App/>
   </React.StrictMode>
 );
 

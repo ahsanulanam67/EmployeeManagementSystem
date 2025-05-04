@@ -24,7 +24,7 @@ function Login({setToken}){
             localStorage.setItem('jwtToken', token);
             setToken(token);
             navigate('/dashboard'); 
-            console.log(token);
+            
 
         }catch(error){
                 console.error("login error",error);
@@ -44,7 +44,10 @@ function Login({setToken}){
             <br />
             <button type="submit">Login</button>
         </form>
+        
+        <button onClick={() => navigate('/register')}>If you don't have an account</button>
 
+        
         </>
 
     );

@@ -1,12 +1,13 @@
 
 import { useState } from 'react';
 import axios from 'axios';
-
+import {useNavigate} from 'react-router-dom';
 function Registration() {
 
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const navigate = useNavigate();
 
   const emailChange = (e) => {
     setEmail(e.target.value);
@@ -25,6 +26,7 @@ function Registration() {
         password
     });
       console.log(response.data);
+      navigate('/login');
     } catch (error) {
 
       console.error(error.response?.data || error);
