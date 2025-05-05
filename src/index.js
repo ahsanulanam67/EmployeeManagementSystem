@@ -3,12 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Login from './components/Login';
-import Dashboard from './components/dashboard';
-import Registration from './components/registration';
-import UpdateEmployer from './components/updateEmployer';
-import AddEmployer from './components/addEmployer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

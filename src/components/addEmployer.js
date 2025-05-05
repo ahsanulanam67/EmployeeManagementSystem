@@ -43,16 +43,83 @@ function AddEmployer() {
   };
 
   return (
-    <div>
-      <h2>Add Employer</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="company_name" placeholder="Company Name" value={formData.company_name} onChange={handleChange} required />
-        <input type="text" name="contact_person_name" placeholder="Contact Person Name" value={formData.contact_person_name} onChange={handleChange} required />
-        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-        <input type="text" name="phone_number" placeholder="Phone Number" value={formData.phone_number} onChange={handleChange} required />
-        <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleChange} required />
-        <button type="submit">Create Employer</button>
-      </form>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card shadow">
+            <div className="card-body">
+              <h3 className="card-title text-center mb-4">Add Employer</h3>
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label className="form-label">Company Name</label>
+                  <input
+                    type="text"
+                    name="company_name"
+                    className="form-control"
+                    value={formData.company_name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Contact Person Name</label>
+                  <input
+                    type="text"
+                    name="contact_person_name"
+                    className="form-control"
+                    value={formData.contact_person_name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Phone Number</label>
+                  <input
+                    type="text"
+                    name="phone_number"
+                    className="form-control"
+                    value={formData.phone_number}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Address</label>
+                  <input
+                    type="text"
+                    name="address"
+                    className="form-control"
+                    value={formData.address}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="d-grid">
+                  <button type="submit" className="btn btn-primary">
+                    Create Employer
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

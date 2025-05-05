@@ -1,18 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import Logout from './logout';
 
-function Dashboard({ setAuth }) {
+
+function Dashboard({ setToken }) {
 
   const [employers, setEmployers] = useState([]);
   
-  const [formData, setFormData] = useState({
-    company_name: '',
-    contact_person_name: '',
-    email: '',
-    phone_number: '',
-    address: '',
-  });
 
   const token = localStorage.getItem('jwtToken');
   const navigate = useNavigate();
@@ -56,11 +51,6 @@ function Dashboard({ setAuth }) {
       }; 
 
 
-  const handleLogout = () => {
-    localStorage.removeItem('jwt_token');
-    setAuth(false);
-  };
-
   const handleEdit = (id)=>{
     navigate(`/updateEmployer/${id}`);
   }
@@ -68,28 +58,36 @@ function Dashboard({ setAuth }) {
     navigate('/addEmployer');
   }
   return (
-    <div>
+    <div className="container mt-5">
+    <div className="d-flex justify-content-between align-items-center mb-4">
       <h2>Your Employers</h2>
-      {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
-
-      <button onClick={()=>addEmployee()} > Add New Employer</button>
-
-      <ul>
-        {employers.map(emp => (
-          <div className="employer-card" key={emp.id}>
-          <h3>{emp.company_name}</h3>
-          <p><strong>Contact_Person_name:</strong> {emp.contact_person_name}</p>
-          <p><strong>Email:</strong> {emp.email}</p>
-          <p><strong>Phone:</strong> {emp.phone_number}</p>
-          <p><strong>Address:</strong> {emp.address}</p>
-          <p><small>Created at: {emp.created_at}</small></p>
-          <button className="edit-btn" onClick={() => handleEdit(emp.id)}>Edit</button>
-          <button className="delete-btn" onClick={() => deleteEmployee(emp.id)}>Delete</button>
-        </div>
-        ))}
-      </ul>
-      {/* <button onClick={handleLogout}>Logout</button> */}
+      <div>
+        <Logout setToken={setToken}/>
+        <button className="btn btn-primary" onClick={addEmployee}>Add New Employer</button>
+      </div>
     </div>
+
+    <div className="row">
+      {employers.map((emp) => (
+        <div className="col-md-6 col-lg-4 mb-4" key={emp.id}>
+          <div className="card shadow-sm h-100">
+            <div className="card-body">
+              <h5 className="card-title">{emp.company_name}</h5>
+              <p className="card-text"><strong>Contact_person_name:</strong> {emp.contact_person_name}</p>
+              <p className="card-text"><strong>Email:</strong> {emp.email}</p>
+              <p className="card-text"><strong>Phone:</strong> {emp.phone_number}</p>
+              <p className="card-text"><strong>Address:</strong> {emp.address}</p>
+              <p className="card-text"><small className="text-muted">Created at: {emp.created_at}</small></p>
+            </div>
+            <div className="card-footer d-flex justify-content-between">
+              <button className="btn btn-outline-secondary btn-sm" onClick={() => handleEdit(emp.id)}>Edit</button>
+              <button className="btn btn-outline-danger btn-sm" onClick={() => deleteEmployee(emp.id)}>Delete</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
   );
 }
 

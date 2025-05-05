@@ -22,6 +22,7 @@ function Logout({ setToken }) {
               );
             localStorage.removeItem('jwtToken');
             setToken(null);
+
             navigate('/login'); 
         } catch (error) {
             console.error("Logout error:", error);
@@ -29,7 +30,7 @@ function Logout({ setToken }) {
     };
 
     return (
-        <button onClick={handleLogout}>Logout</button>
+        <button className="btn btn-danger me-2" onClick={handleLogout}>Logout</button>
     );
 }
 

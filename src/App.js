@@ -22,7 +22,7 @@ const App = () => {
     },
     {
       path: "/dashboard",
-      element: token ? <> <Dashboard /> <Logout setToken={setToken}/></> : <Login setToken={setToken} /> ,
+      element: token ? <Dashboard setToken={setToken} /> : <Login setToken={setToken} /> ,
     },
     {
       path: "/register",

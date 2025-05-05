@@ -34,36 +34,57 @@ function Registration() {
   };
 
   return (
-    <div>
-      <h2>User Registration</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6 col-lg-5">
+          <div className="card shadow">
+            <div className="card-body">
+              <h2 className="text-center mb-4">User Registration</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    name="email"
+                    type="email"
+                    className="form-control"
+                    value={email}
+                    onChange={emailChange}
+                    required
+                  />
+                </div>
 
-        
+                <div className="mb-3">
+                  <label className="form-label">Password</label>
+                  <input
+                    name="password"
+                    type="password"
+                    className="form-control"
+                    value={password}
+                    onChange={passChange}
+                    required
+                  />
+                </div>
 
-        <div>
-          <label>Email:</label>
-          <input
-            name="email"
-            type="email"
-            value={email}
-            onChange={emailChange}
-            required
-          />
+                <div className="d-grid">
+                  <button type="submit" className="btn btn-primary">
+                    Register
+                  </button>
+                </div>
+              </form>
+
+              <div className="mt-3 text-center">
+                <button
+                  type="button"
+                  onClick={() => navigate('/login')}
+                  className="btn btn-link"
+                >
+                  Already have an account? Login here.
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div>
-          <label>Password:</label>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={passChange}
-            required
-          />
-        </div>
-
-        <button type="submit">Register</button>
-      </form>
+      </div>
     </div>
   );
 }

@@ -47,17 +47,84 @@ function UpdateEmployer() {
   };
 
   return (
-    <div>
-      <h2>Update Employer</h2>
-      <form onSubmit={handleUpdate}>
-        <input type="text" name="company_name" value={formData.company_name} onChange={handleChange} required />
-        <input type="text" name="contact_person_name" value={formData.contact_person_name} onChange={handleChange} required />
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-        <input type="text" name="phone_number" value={formData.phone_number} onChange={handleChange} required />
-        <input type="text" name="address" value={formData.address} onChange={handleChange} required />
-        <button type="submit">Update Employer</button>
-      </form>
+    <div className="container mt-5">
+    <div className="row justify-content-center">
+      <div className="col-md-6">
+        <div className="card shadow">
+          <div className="card-body">
+            <h3 className="card-title text-center mb-4">Update Employer</h3>
+            <form onSubmit={handleUpdate}>
+              <div className="mb-3">
+                <label className="form-label">Company Name</label>
+                <input
+                  type="text"
+                  name="company_name"
+                  className="form-control"
+                  value={formData.company_name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Contact Person Name</label>
+                <input
+                  type="text"
+                  name="contact_person_name"
+                  className="form-control"
+                  value={formData.contact_person_name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Phone Number</label>
+                <input
+                  type="text"
+                  name="phone_number"
+                  className="form-control"
+                  value={formData.phone_number}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Address</label>
+                <input
+                  type="text"
+                  name="address"
+                  className="form-control"
+                  value={formData.address}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="d-grid">
+                <button type="submit" className="btn btn-success">
+                  Update Employer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
   );
 }
 
