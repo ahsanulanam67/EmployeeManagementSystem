@@ -20,7 +20,7 @@ function Registration() {
       e.preventDefault();
       console.log(email);
     try {
-      const url = 'http://127.0.0.1:8000/api/auth/register/';
+      const url = 'http://127.0.0.1:8000/api/auth/signup/';
       const response = await axios.post(url, {
         email,
         password

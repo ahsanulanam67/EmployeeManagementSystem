@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# 🏢 Employer Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an **Employer Management System** built with a Django REST API for the backend and a modern frontend interface for managing employer data. It includes user authentication, employer CRUD operations, and JWT-based security.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **User Authentication**: Secure user login and registration with JWT-based tokens.
+- **Employer Management**: Create, read, update, and delete employer records.
+- **Token Refresh**: Endpoint to refresh authentication tokens.
+- **Secured Routes**: Protected API routes for authenticated users.
+- **CORS Support**: Cross-origin resource sharing for API integration with frontend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+### Backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Python 3.x**
+- **Django 4.x**
+- **Django REST Framework (DRF)**
+- **SimpleJWT** for token-based authentication
+- **django-cors-headers** for CORS support
 
-### `npm run build`
+### Frontend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **HTML5**
+- **CSS3**
+- **JavaScript (ES6+)**
+- **React** (or another frontend framework of your choice)
+- **Axios** for API requests
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API Endpoints
 
-### `npm run eject`
+This API provides endpoints for user authentication and employer management.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Authentication
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### `POST /api/auth/signup/`
+- **Description**: Register a new user.
+  
+#### `POST /api/auth/login/`
+- **Description**: Login and get JWT tokens.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### `GET /api/auth/profile/`
+- **Description**: Get the logged-in user's profile.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Employers
 
-## Learn More
+#### `POST /api/employers/`
+- **Description**: Create an Employer.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### `GET /api/employers/`
+- **Description**: List all Employers for the logged-in user.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### `GET /api/employers/<id>/`
+- **Description**: Retrieve a specific Employer by its `id`.
 
-### Code Splitting
+#### `PUT /api/employers/<id>/`
+- **Description**: Update a specific Employer by its `id`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### `DELETE /api/employers/<id>/`
+- **Description**: Delete a specific Employer by its `id`.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📦 Backend Installation
 
-### Making a Progressive Web App
+Follow the steps below to set up the backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **Clone the repository**:
+   ```bash
+   git clone <your_repo_url>
+   cd backend
+2. **Create a virtual environment:**:
+   ```bash
+   python -m venv venv
+3. **Activate the virtual environment:**:
+   ```bash
+   venv\Scripts\activate
+4. **Install dependencies:**:
+   ```bash
+   pip install -r requirements.txt
 
-### Advanced Configuration
+5. **Run the server::**:
+   ```bash
+   python manage.py runserver
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📦 Frontend Installation
 
-### Deployment
+Follow the steps below to set up the frontend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. **Clone the repository**:
+   ```bash
+   git clone <your-repository-url>
+   cd frontend
+2. **Install dependencies:**:
+   ```bash
+   npm install
+     
 
-### `npm run build` fails to minify
+3. **Run the development server:**:
+   ```bash
+   npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+##
+This format organizes both the frontend and backend instructions in a clear, easy-to-follow manner. Let me know if you need any more adjustments!
